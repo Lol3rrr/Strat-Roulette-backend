@@ -1,22 +1,33 @@
 package main
 
 import (
+	"strat-roulette-backend/api"
 	"strat-roulette-backend/database"
+	"strat-roulette-backend/strats"
 
-	log "github.com/sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 )
 
 func main() {
-	log.Info("Starting... \n")
+	logrus.Info("Starting... \n")
 
 	dbURL := ""
 	dbPort := ""
 	dbDatabase := ""
 	dbCollection := ""
+	port := 8080
 
-	log.Info("Connecting to Database... \n")
+	logrus.Info("Connecting to Database... \n")
 	dbSession := database.InitSession(dbURL, dbPort, dbDatabase, dbCollection)
-	log.Info("Connect to Database \n")
+	logrus.Info("Connect to Database \n")
 
-	log.Info("Started \n")
+	logrus.Info("Initializing Strats Session... \n")
+	stratSession := strats.InitSession(dbSession)
+	logrus.Info("Initialized Strats Session \n")
+
+	go api.Start(port, stratSession)
+
+	logrus.Info("Started \n")
+
+	<-make(chan bool)
 }

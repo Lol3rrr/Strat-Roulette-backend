@@ -1,5 +1,7 @@
 package database
 
+import "github.com/sirupsen/logrus"
+
 // InitSession is used to initialize a simple Session with the given Params and connects to the Database
 func InitSession(pURL, pPort, pDatabase, pCollection string) SessionInterface {
 	tmpSession := &session{
@@ -9,7 +11,10 @@ func InitSession(pURL, pPort, pDatabase, pCollection string) SessionInterface {
 		Collection: pCollection,
 	}
 
-	tmpSession.connect()
+	err := tmpSession.connect()
+	if err != nil {
+		logrus.Errorf("Connecting to Database: %v \n", err)
+	}
 
 	return tmpSession
 }
