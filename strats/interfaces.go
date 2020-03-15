@@ -4,5 +4,5 @@ package strats
 // and helps with abstracting the implementation away
 type SessionInterface interface {
 	AddStrat(string, string, Site, []GameMode) error
-	GetRandomStrat(Site, []GameMode) (Strat, error)
+	GetRandomStrat(Site, GameMode) (Strat, error)
 }
