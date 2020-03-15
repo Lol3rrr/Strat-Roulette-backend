@@ -9,4 +9,5 @@
 
 ## Routes
  * GET /strat/random
+ * GET /strat/single
  * POST /strat/add
