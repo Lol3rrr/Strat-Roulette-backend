@@ -4,7 +4,7 @@ package strats
 // and helps with abstracting the implementation away
 type SessionInterface interface {
 	// AddStrat takes the given params and inserts a new Strat with these settings into the Database
-	AddStrat(string, string, Site, []GameMode) error
+	AddStrat(Name string, Description string, PlayerSite Site, Modes []GameMode) error
 	// GetRandomStrat returns a random Strat from the Database, that matches the given criteria
-	GetRandomStrat(Site, GameMode) (Strat, error)
+	GetRandomStrat(PlayerSite Site, Mode GameMode) (Strat, error)
 }

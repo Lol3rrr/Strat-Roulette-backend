@@ -74,9 +74,9 @@ func TestHandleGetRandomStrat(t *testing.T) {
 
 		t.Run(table.Name, func(t *testing.T) {
 			app := fiber.New()
-			app.Get("/strat/random", inSession.handleGetRandomStrat)
+			app.Get("/test", inSession.handleGetRandomStrat)
 
-			req, err := http.NewRequest(http.MethodGet, "/strat/random"+inQuery, nil)
+			req, err := http.NewRequest(http.MethodGet, "/test"+inQuery, nil)
 			if err != nil {
 				t.Fatal(err)
 			}

@@ -17,9 +17,9 @@ func main() {
 	dbCollection := ""
 	port := 8080
 
-	logrus.Info("Connecting to Database... \n")
+	logrus.Info("Connecting to Strat-Database... \n")
 	dbSession := database.InitSession(dbURL, dbPort, dbDatabase, dbCollection)
-	logrus.Info("Connect to Database \n")
+	logrus.Info("Connect to Strat-Database \n")
 
 	logrus.Info("Initializing Strats Session... \n")
 	stratSession := strats.InitSession(dbSession)

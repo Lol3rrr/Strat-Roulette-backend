@@ -1,0 +1,84 @@
+package api
+
+import (
+	"bytes"
+	"encoding/json"
+	"errors"
+	"net/http"
+	"strconv"
+	"testing"
+
+	"github.com/gofiber/fiber"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
+)
+
+func TestHandleAddStrat(t *testing.T) {
+	tables := []struct {
+		Name             string
+		InputSession     session
+		InputStratsError error
+		InputBody        map[string]interface{}
+		ResponseCode     int
+	}{
+		{
+			Name:             "Valid Input",
+			InputSession:     session{},
+			InputStratsError: nil,
+			InputBody:        map[string]interface{}{},
+			ResponseCode:     200,
+		},
+		{
+			Name:             "Strats returns error",
+			InputSession:     session{},
+			InputStratsError: errors.New("testError"),
+			InputBody:        map[string]interface{}{},
+			ResponseCode:     500,
+		},
+	}
+
+	for _, table := range tables {
+		inSession := table.InputSession
+		inStratsError := table.InputStratsError
+		inBody := table.InputBody
+		responseCode := table.ResponseCode
+
+		inSession.Strats = &mockStrats{
+			Mock: mock.Mock{
+				ExpectedCalls: []*mock.Call{
+					&mock.Call{
+						Method: "AddStrat",
+						ReturnArguments: mock.Arguments{
+							inStratsError,
+						},
+					},
+				},
+			},
+		}
+
+		t.Run(table.Name, func(t *testing.T) {
+			app := fiber.New()
+			app.Post("/test", inSession.handleAddStrat)
+
+			bodyContent, err := json.Marshal(inBody)
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			req, err := http.NewRequest(http.MethodPost, "/test", bytes.NewReader(bodyContent))
+			req.Header.Set("Content-Type", "application/json")
+			req.Header.Set("Content-Length", strconv.Itoa(len(bodyContent)))
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			resp, err := app.Test(req)
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			respCode := resp.StatusCode
+			assert.Equal(t, responseCode, respCode)
+		})
+	}
+}

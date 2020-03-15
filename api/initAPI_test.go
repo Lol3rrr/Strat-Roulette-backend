@@ -31,6 +31,12 @@ func TestInitAPI(t *testing.T) {
 							nil,
 						},
 					},
+					&mock.Call{
+						Method: "AddStrat",
+						ReturnArguments: mock.Arguments{
+							nil,
+						},
+					},
 				},
 			},
 		},
