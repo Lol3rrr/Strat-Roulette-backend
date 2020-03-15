@@ -15,9 +15,9 @@ func TestInitSession(t *testing.T) {
 	}{
 		{
 			Name:           "Valid Input",
-			InputDBSession: &mockDatabase{},
+			InputDBSession: &database.MockDatabase{},
 			Result: &session{
-				Database: &mockDatabase{},
+				Database: &database.MockDatabase{},
 			},
 		},
 	}

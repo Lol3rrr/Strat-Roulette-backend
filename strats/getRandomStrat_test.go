@@ -2,6 +2,7 @@ package strats
 
 import (
 	"errors"
+	"strat-roulette-backend/database"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -117,7 +118,7 @@ func TestGetRandomStrat(t *testing.T) {
 		inMode := table.InputMode
 		resultError := table.ResultError
 
-		inSession.Database = &mockDatabase{
+		inSession.Database = &database.MockDatabase{
 			Mock: mock.Mock{
 				ExpectedCalls: []*mock.Call{
 					&mock.Call{

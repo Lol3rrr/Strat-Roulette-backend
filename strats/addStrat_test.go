@@ -2,6 +2,7 @@ package strats
 
 import (
 	"errors"
+	"strat-roulette-backend/database"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -125,7 +126,7 @@ func TestAddStrat(t *testing.T) {
 		inModes := table.InputModes
 		resultError := table.ResultError
 
-		inSession.Database = &mockDatabase{
+		inSession.Database = &database.MockDatabase{
 			Mock: mock.Mock{
 				ExpectedCalls: []*mock.Call{
 					&mock.Call{
