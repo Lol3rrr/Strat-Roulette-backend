@@ -29,8 +29,8 @@ type Strat struct {
 	ID          string     `json:"id" bson:"id"`
 	Name        string     `json:"name" bson:"name"`
 	Description string     `json:"description" bson:"description"`
-	PlayerSite  Site       `json:"-" bson:"playerSite"`
-	Modes       []GameMode `json:"-" bson:"modes"`
+	PlayerSite  Site       `json:"site" bson:"playerSite"`
+	Modes       []GameMode `json:"modes" bson:"modes"`
 }
 
 type session struct {
