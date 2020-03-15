@@ -18,10 +18,6 @@ type mockDatabase struct {
 	deleteError  error
 }
 
-func (m *mockDatabase) Connect() error {
-	return m.Called().Error(0)
-}
-
 func (m *mockDatabase) Get(map[string]interface{}, interface{}) error {
 	return m.Called().Error(0)
 }

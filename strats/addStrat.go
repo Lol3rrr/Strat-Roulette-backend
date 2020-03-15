@@ -21,12 +21,12 @@ func (s *session) AddStrat(pName, pDescription string, pSite Site, pModes []Game
 		return errors.New("Modes was empty")
 	}
 
-	if pSite != Attacker && pSite != Defender {
-		return errors.New("Unknown Site")
+	if !isValidSite(pSite) {
+		return errors.New("Unknown PlayerSite")
 	}
 
 	for _, mode := range pModes {
-		if mode != Bomb && mode != SecureArea && mode != Hostage {
+		if !isValidMode(mode) {
 			return errors.New("Unknown Mode")
 		}
 	}

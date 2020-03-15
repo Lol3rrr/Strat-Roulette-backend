@@ -67,6 +67,46 @@ func TestGetRandomStrat(t *testing.T) {
 			InputMode:     Bomb,
 			ResultError:   true,
 		},
+		{
+			Name:         "Invalid Site",
+			InputSession: session{},
+			InputDBResult: []Strat{
+				{
+					ID:          "testID",
+					Name:        "testName",
+					Description: "testDescription",
+					Modes: []GameMode{
+						Bomb,
+						SecureArea,
+					},
+					PlayerSite: Attacker,
+				},
+			},
+			InputDBError: nil,
+			InputSite:    "testSite",
+			InputMode:    Bomb,
+			ResultError:  true,
+		},
+		{
+			Name:         "Invalid Mode",
+			InputSession: session{},
+			InputDBResult: []Strat{
+				{
+					ID:          "testID",
+					Name:        "testName",
+					Description: "testDescription",
+					Modes: []GameMode{
+						Bomb,
+						SecureArea,
+					},
+					PlayerSite: Attacker,
+				},
+			},
+			InputDBError: nil,
+			InputSite:    Attacker,
+			InputMode:    "testMode",
+			ResultError:  true,
+		},
 	}
 
 	for _, table := range tables {

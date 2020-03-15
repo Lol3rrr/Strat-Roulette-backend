@@ -10,7 +10,7 @@ import (
 // Update updates the first entry that matches the query with the given Data
 func (s *session) Update(query map[string]interface{}, updateData map[string]interface{}) error {
 	if !s.isConnectionAlive() {
-		err := s.Connect()
+		err := s.connect()
 		if err != nil {
 			return err
 		}

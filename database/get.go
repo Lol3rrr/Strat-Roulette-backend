@@ -8,7 +8,7 @@ import (
 // Get is used to load a single entry from the Database
 func (s *session) Get(query map[string]interface{}, result interface{}) error {
 	if !s.isConnectionAlive() {
-		err := s.Connect()
+		err := s.connect()
 		if err != nil {
 			return err
 		}

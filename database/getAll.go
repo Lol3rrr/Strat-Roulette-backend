@@ -8,7 +8,7 @@ import (
 // GetAll loads all the entries matching the given filter
 func (s *session) GetAll(query map[string]interface{}, results interface{}) error {
 	if !s.isConnectionAlive() {
-		err := s.Connect()
+		err := s.connect()
 		if err != nil {
 			return err
 		}

@@ -7,6 +7,13 @@ import (
 
 // GetRandomStrat selects one random Strat that matches the given Params
 func (s *session) GetRandomStrat(playerSite Site, mode GameMode) (Strat, error) {
+	if !isValidSite(playerSite) {
+		return Strat{}, errors.New("Unknown PlayerSite")
+	}
+	if !isValidMode(mode) {
+		return Strat{}, errors.New("Unknown Mode")
+	}
+
 	var entrys []Strat
 	query := map[string]interface{}{
 		"playerSite": playerSite,

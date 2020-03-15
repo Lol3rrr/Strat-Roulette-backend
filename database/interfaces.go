@@ -3,8 +3,6 @@ package database
 // SessionInterface provides a simple interface to do all the needed
 // database related actions
 type SessionInterface interface {
-	// Connect is used to connect to the Database
-	Connect() error
 	// Get simply loads the first entry matching the query params and
 	// loads it into the result interface param
 	Get(map[string]interface{}, interface{}) error

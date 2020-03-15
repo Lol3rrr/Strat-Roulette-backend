@@ -8,7 +8,7 @@ import (
 // Insert adds the given interface to the database
 func (s *session) Insert(data interface{}) error {
 	if !s.isConnectionAlive() {
-		err := s.Connect()
+		err := s.connect()
 		if err != nil {
 			return err
 		}

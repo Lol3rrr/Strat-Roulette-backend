@@ -8,7 +8,7 @@ import (
 // Delete deletes the first entry matching the query
 func (s *session) Delete(query map[string]interface{}) error {
 	if !s.isConnectionAlive() {
-		err := s.Connect()
+		err := s.connect()
 		if err != nil {
 			return err
 		}
