@@ -20,4 +20,8 @@ type UserSessionInterface interface {
 	// GetSessionID returns the SessionID associated with the
 	// current UserSession
 	GetSessionID() string
+
+	// GetUserSession returns the expiration timestamp of the
+	// current UserSession
+	GetExpiration() int64
 }

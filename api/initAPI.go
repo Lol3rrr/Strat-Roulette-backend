@@ -9,6 +9,7 @@ func (s *session) init() *fiber.App {
 	app.Get("/strat/single", s.handleGetSingleStrat)
 
 	app.Post("/strat/add", s.handleAddStrat)
+	app.Post("/admin/login", s.handleAdminLogin)
 
 	return app
 }

@@ -26,10 +26,14 @@ func TestInitAPI(t *testing.T) {
 			Path:   "/strat/add",
 			Method: http.MethodPost,
 		},
+		{
+			Path:   "/admin/login",
+			Method: http.MethodPost,
+		},
 	}
 
 	testSession := session{
-		&mockStrats{
+		Strats: &mockStrats{
 			mock.Mock{
 				ExpectedCalls: []*mock.Call{
 					&mock.Call{
