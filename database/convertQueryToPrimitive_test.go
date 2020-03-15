@@ -39,7 +39,7 @@ func TestConvertQueryToPrimitive(t *testing.T) {
 		t.Run(table.Name, func(t *testing.T) {
 			output := convertQueryToPrimitive(inQuery)
 
-			assert.Equal(t, result, output)
+			assert.ElementsMatch(t, result, output)
 		})
 	}
 }
