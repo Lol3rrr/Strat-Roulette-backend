@@ -4,6 +4,7 @@ import (
 	"strat-roulette-backend/api"
 	"strat-roulette-backend/database"
 	"strat-roulette-backend/strats"
+	"strat-roulette-backend/utils"
 
 	"github.com/sirupsen/logrus"
 )
@@ -11,14 +12,14 @@ import (
 func main() {
 	logrus.Info("Starting... \n")
 
-	dbURL := ""
-	dbPort := ""
-	dbDatabase := ""
-	dbCollection := ""
-	port := 8080
+	stratDbURL := utils.GetEnvString("stratDB_URL", "localhost")
+	stratDbPort := utils.GetEnvString("stratDB_PORT", "27017")
+	stratDbDatabase := utils.GetEnvString("stratDB_DATABASE", "strats")
+	stratDbCollection := utils.GetEnvString("stratDB_COLLECTION", "entrys")
+	port := utils.GetEnvInt("PORT", 80)
 
 	logrus.Info("Connecting to Strat-Database... \n")
-	dbSession := database.InitSession(dbURL, dbPort, dbDatabase, dbCollection)
+	dbSession := database.InitSession(stratDbURL, stratDbPort, stratDbDatabase, stratDbCollection)
 	logrus.Info("Connect to Strat-Database \n")
 
 	logrus.Info("Initializing Strats Session... \n")
