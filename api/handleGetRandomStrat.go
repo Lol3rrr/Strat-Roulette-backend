@@ -17,6 +17,7 @@ func (s *session) handleGetRandomStrat(ctx *fiber.Ctx) {
 
 	strat, err := s.Strats.GetRandomStrat(site, mode)
 	if err != nil {
+		logrus.Errorf("Could not load Random-Strat: %v \n", err)
 		ctx.SendStatus(http.StatusInternalServerError)
 		return
 	}

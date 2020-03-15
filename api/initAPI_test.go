@@ -2,18 +2,39 @@ package api
 
 import (
 	"net/http"
+	"strat-roulette-backend/strats"
 	"testing"
 
 	"github.com/go-playground/assert"
+	"github.com/stretchr/testify/mock"
 )
 
 func TestInitAPI(t *testing.T) {
 	routes := []struct {
 		Path   string
 		Method string
-	}{}
+	}{
+		{
+			Path:   "/strat/random",
+			Method: http.MethodGet,
+		},
+	}
 
-	testSession := session{}
+	testSession := session{
+		&mockStrats{
+			mock.Mock{
+				ExpectedCalls: []*mock.Call{
+					&mock.Call{
+						Method: "GetRandomStrat",
+						ReturnArguments: mock.Arguments{
+							strats.Strat{},
+							nil,
+						},
+					},
+				},
+			},
+		},
+	}
 
 	app := testSession.init()
 
