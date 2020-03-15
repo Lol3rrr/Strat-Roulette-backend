@@ -18,6 +18,14 @@ func TestInitAPI(t *testing.T) {
 			Path:   "/strat/random",
 			Method: http.MethodGet,
 		},
+		{
+			Path:   "/strat/single",
+			Method: http.MethodGet,
+		},
+		{
+			Path:   "/strat/add",
+			Method: http.MethodPost,
+		},
 	}
 
 	testSession := session{
@@ -26,6 +34,13 @@ func TestInitAPI(t *testing.T) {
 				ExpectedCalls: []*mock.Call{
 					&mock.Call{
 						Method: "GetRandomStrat",
+						ReturnArguments: mock.Arguments{
+							strats.Strat{},
+							nil,
+						},
+					},
+					&mock.Call{
+						Method: "GetStrat",
 						ReturnArguments: mock.Arguments{
 							strats.Strat{},
 							nil,

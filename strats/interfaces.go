@@ -7,4 +7,6 @@ type SessionInterface interface {
 	AddStrat(Name string, Description string, PlayerSite Site, Modes []GameMode) error
 	// GetRandomStrat returns a random Strat from the Database, that matches the given criteria
 	GetRandomStrat(PlayerSite Site, Mode GameMode) (Strat, error)
+	// GetRandomStrat returns a single Strat with the given ID
+	GetStrat(id string) (Strat, error)
 }
