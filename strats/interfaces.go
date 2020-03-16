@@ -12,6 +12,9 @@ type SessionInterface interface {
 	// GetRandomStrat returns a single Strat with the given ID
 	GetStrat(id string) (Strat, error)
 
+	// GetAllStrats returns an array, containing all Strats
+	GetAllStrats() ([]Strat, error)
+
 	// DeleteStrat removes a single Strat with the given ID
 	DeleteStrat(id string) error
 }

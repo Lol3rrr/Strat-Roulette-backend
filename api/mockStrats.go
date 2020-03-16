@@ -24,6 +24,11 @@ func (m *mockStrats) GetStrat(id string) (strats.Strat, error) {
 	return args.Get(0).(strats.Strat), args.Error(1)
 }
 
+func (m *mockStrats) GetAllStrats() ([]strats.Strat, error) {
+	args := m.Called()
+	return args.Get(0).([]strats.Strat), args.Error(1)
+}
+
 func (m *mockStrats) DeleteStrat(id string) error {
 	return m.Called().Error(0)
 }
