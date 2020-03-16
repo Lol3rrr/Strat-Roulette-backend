@@ -10,6 +10,10 @@ type SessionInterface interface {
 	// with the credentials and returns a valid SessionInterface if it worked
 	// otherwise returns an error
 	Login(username, password string) (UserSessionInterface, error)
+
+	// CleanUpSessions deletes all session entrys that have expired using
+	// the provided time, returns an error if one occured
+	CleanUpSessions(now int64) error
 }
 
 // UserSessionInterface represents a single Session for a User

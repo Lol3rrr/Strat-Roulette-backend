@@ -15,4 +15,6 @@ type SessionInterface interface {
 	Update(map[string]interface{}, map[string]interface{}) error
 	// Delete takes the given filter params and deletes the first entry matching it
 	Delete(map[string]interface{}) error
+	// DeleteMany takes the given filter params and deletes every entry matching it
+	DeleteMany(map[string]interface{}) error
 }

@@ -24,6 +24,12 @@ func TestMockAuthSession(t *testing.T) {
 						nil,
 					},
 				},
+				&mock.Call{
+					Method: "CleanUpSessions",
+					ReturnArguments: mock.Arguments{
+						nil,
+					},
+				},
 			},
 		},
 	}
@@ -33,5 +39,8 @@ func TestMockAuthSession(t *testing.T) {
 	})
 	t.Run("Login", func(t *testing.T) {
 		mockSession.Login("", "")
+	})
+	t.Run("CleanUpSessions", func(t *testing.T) {
+		mockSession.CleanUpSessions(int64(0))
 	})
 }

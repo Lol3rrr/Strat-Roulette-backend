@@ -56,3 +56,8 @@ func (m *MockDatabase) Update(map[string]interface{}, map[string]interface{}) er
 func (m *MockDatabase) Delete(map[string]interface{}) error {
 	return m.Called().Error(0)
 }
+
+// DeleteMany is needed to compy with the interface
+func (m *MockDatabase) DeleteMany(map[string]interface{}) error {
+	return m.Called().Error(0)
+}

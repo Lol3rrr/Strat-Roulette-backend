@@ -6,6 +6,7 @@ import (
 	"strat-roulette-backend/database"
 	"strat-roulette-backend/strats"
 	"strat-roulette-backend/utils"
+	"time"
 
 	"github.com/sirupsen/logrus"
 )
@@ -44,6 +45,12 @@ func main() {
 	logrus.Info("Initializing Auth Session... \n")
 	authSession := auth.InitSession(sessionDbSession, adminUsername, adminPassword, int64(sessionDuration))
 	logrus.Info("Initialized Auth Session \n")
+
+	utils.Schedule(func() {
+		now := time.Now().Unix()
+
+		authSession.CleanUpSessions(now)
+	}, 1*time.Hour)
 
 	go api.Start(port, stratSession, authSession)
 
