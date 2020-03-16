@@ -19,6 +19,7 @@ func TestHandleAddStrat(t *testing.T) {
 		InputSession     session
 		InputStratsError error
 		InputBody        map[string]interface{}
+		InputSendBody    bool
 		ResponseCode     int
 	}{
 		{
@@ -26,14 +27,24 @@ func TestHandleAddStrat(t *testing.T) {
 			InputSession:     session{},
 			InputStratsError: nil,
 			InputBody:        map[string]interface{}{},
-			ResponseCode:     200,
+			InputSendBody:    true,
+			ResponseCode:     http.StatusOK,
 		},
 		{
 			Name:             "Strats returns error",
 			InputSession:     session{},
 			InputStratsError: errors.New("testError"),
 			InputBody:        map[string]interface{}{},
-			ResponseCode:     500,
+			InputSendBody:    true,
+			ResponseCode:     http.StatusInternalServerError,
+		},
+		{
+			Name:             "No Body",
+			InputSession:     session{},
+			InputStratsError: nil,
+			InputBody:        map[string]interface{}{},
+			InputSendBody:    false,
+			ResponseCode:     http.StatusBadRequest,
 		},
 	}
 
@@ -41,6 +52,7 @@ func TestHandleAddStrat(t *testing.T) {
 		inSession := table.InputSession
 		inStratsError := table.InputStratsError
 		inBody := table.InputBody
+		inSendBody := table.InputSendBody
 		responseCode := table.ResponseCode
 
 		inSession.Strats = &mockStrats{
@@ -65,7 +77,13 @@ func TestHandleAddStrat(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			req, err := http.NewRequest(http.MethodPost, "/test", bytes.NewReader(bodyContent))
+			if !inSendBody {
+				bodyContent = []byte("")
+			}
+
+			reader := bytes.NewReader(bodyContent)
+
+			req, err := http.NewRequest(http.MethodPost, "/test", reader)
 			req.Header.Set("Content-Type", "application/json")
 			req.Header.Set("Content-Length", strconv.Itoa(len(bodyContent)))
 			if err != nil {
