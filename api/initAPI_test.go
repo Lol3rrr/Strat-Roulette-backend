@@ -27,6 +27,10 @@ func TestInitAPI(t *testing.T) {
 			Method: http.MethodPost,
 		},
 		{
+			Path:   "/admin/strat/all",
+			Method: http.MethodGet,
+		},
+		{
 			Path:   "/admin/strat/add",
 			Method: http.MethodPost,
 		},
