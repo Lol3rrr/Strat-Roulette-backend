@@ -5,7 +5,7 @@ import (
 	"strat-roulette-backend/strats"
 	"testing"
 
-	"github.com/go-playground/assert"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
 

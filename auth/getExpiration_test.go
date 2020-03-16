@@ -3,7 +3,7 @@ package auth
 import (
 	"testing"
 
-	"github.com/go-playground/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGetExpiration(t *testing.T) {
