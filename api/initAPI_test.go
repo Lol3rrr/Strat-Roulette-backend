@@ -23,11 +23,11 @@ func TestInitAPI(t *testing.T) {
 			Method: http.MethodGet,
 		},
 		{
-			Path:   "/strat/add",
+			Path:   "/admin/login",
 			Method: http.MethodPost,
 		},
 		{
-			Path:   "/admin/login",
+			Path:   "/admin/strat/add",
 			Method: http.MethodPost,
 		},
 	}

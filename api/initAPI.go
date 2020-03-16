@@ -8,8 +8,9 @@ func (s *session) init() *fiber.App {
 	app.Get("/strat/random", s.handleGetRandomStrat)
 	app.Get("/strat/single", s.handleGetSingleStrat)
 
-	app.Post("/strat/add", s.handleAddStrat)
 	app.Post("/admin/login", s.handleAdminLogin)
+	app.Use("/admin/strat/", s.middlewareAuth)
+	app.Post("/admin/strat/add", s.handleAddStrat)
 
 	return app
 }

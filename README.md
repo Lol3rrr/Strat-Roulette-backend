@@ -20,5 +20,5 @@
 ## Routes
  * GET /strat/random
  * GET /strat/single
- * POST /strat/add
  * POST /admin/login
+ * POST /admin/strat/add
