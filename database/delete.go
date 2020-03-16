@@ -2,6 +2,7 @@ package database
 
 import (
 	"context"
+	"errors"
 	"time"
 )
 
@@ -19,7 +20,14 @@ func (s *session) Delete(query map[string]interface{}) error {
 	ctx, cancelCtx := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancelCtx()
 
-	_, err := s.MongoCollection.DeleteOne(ctx, filter)
+	result, err := s.MongoCollection.DeleteOne(ctx, filter)
+	if err != nil {
+		return err
+	}
 
-	return err
+	if result.DeletedCount <= 0 {
+		return errors.New("Could not find any element matching the Query")
+	}
+
+	return nil
 }
