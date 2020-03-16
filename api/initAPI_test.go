@@ -30,6 +30,10 @@ func TestInitAPI(t *testing.T) {
 			Path:   "/admin/strat/add",
 			Method: http.MethodPost,
 		},
+		{
+			Path:   "/admin/strat/delete",
+			Method: http.MethodPost,
+		},
 	}
 
 	testSession := session{

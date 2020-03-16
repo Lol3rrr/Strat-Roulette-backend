@@ -22,3 +22,4 @@
  * GET /strat/single
  * POST /admin/login
  * POST /admin/strat/add
+ * POST /admin/strat/delete

@@ -18,7 +18,6 @@ func TestHandleGetRandomStrat(t *testing.T) {
 		InputSession     session
 		InputStratsValue strats.Strat
 		InputStratsError error
-		InputQuery       string
 		ResponseCode     int
 		ResponesBody     string
 	}{
@@ -35,7 +34,6 @@ func TestHandleGetRandomStrat(t *testing.T) {
 				},
 			},
 			InputStratsError: nil,
-			InputQuery:       "",
 			ResponseCode:     200,
 			ResponesBody:     `{"id":"testID","name":"testName","description":"testDescription","site":"attacker","modes":["bomb"]}`,
 		},
@@ -44,7 +42,6 @@ func TestHandleGetRandomStrat(t *testing.T) {
 			InputSession:     session{},
 			InputStratsValue: strats.Strat{},
 			InputStratsError: errors.New("testError"),
-			InputQuery:       "",
 			ResponseCode:     500,
 			ResponesBody:     "Internal Server Error",
 		},
@@ -54,7 +51,6 @@ func TestHandleGetRandomStrat(t *testing.T) {
 		inSession := table.InputSession
 		inStratsValue := table.InputStratsValue
 		inStratsError := table.InputStratsError
-		inQuery := table.InputQuery
 		responseCode := table.ResponseCode
 		responseBody := table.ResponesBody
 
@@ -76,7 +72,7 @@ func TestHandleGetRandomStrat(t *testing.T) {
 			app := fiber.New()
 			app.Get("/test", inSession.handleGetRandomStrat)
 
-			req, err := http.NewRequest(http.MethodGet, "/test"+inQuery, nil)
+			req, err := http.NewRequest(http.MethodGet, "/test", nil)
 			if err != nil {
 				t.Fatal(err)
 			}

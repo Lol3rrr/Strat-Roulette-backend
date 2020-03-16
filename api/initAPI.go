@@ -11,6 +11,7 @@ func (s *session) init() *fiber.App {
 	app.Post("/admin/login", s.handleAdminLogin)
 	app.Use("/admin/strat/", s.middlewareAuth)
 	app.Post("/admin/strat/add", s.handleAddStrat)
+	app.Post("/admin/strat/delete", s.handleDeleteStrat)
 
 	return app
 }
