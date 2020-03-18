@@ -27,6 +27,7 @@ func (s *session) handleAdminLogin(ctx *fiber.Ctx) {
 	sessionCookie.Name = "sessionID"
 	sessionCookie.Value = userSession.GetSessionID()
 	sessionCookie.Expires = cookieExpiration
+	sessionCookie.Secure = true
 
 	ctx.Cookie(sessionCookie)
 	ctx.SendStatus(http.StatusOK)
