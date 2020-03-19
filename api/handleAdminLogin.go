@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber"
+	"github.com/valyala/fasthttp"
 )
 
 func (s *session) handleAdminLogin(ctx *fiber.Ctx) {
@@ -23,12 +24,13 @@ func (s *session) handleAdminLogin(ctx *fiber.Ctx) {
 
 	cookieExpiration := time.Unix(userSession.GetExpiration(), 0).Add(1 * time.Hour)
 
-	sessionCookie := new(fiber.Cookie)
-	sessionCookie.Name = "sessionID"
-	sessionCookie.Value = userSession.GetSessionID()
-	sessionCookie.Expires = cookieExpiration
-	sessionCookie.Secure = true
+	sessionCookie := new(fasthttp.Cookie)
+	sessionCookie.SetKey("sessionID")
+	sessionCookie.SetValue(userSession.GetSessionID())
+	sessionCookie.SetExpire(cookieExpiration)
+	sessionCookie.SetSecure(true)
+	sessionCookie.SetSameSite(fasthttp.CookieSameSiteNoneMode)
 
-	ctx.Cookie(sessionCookie)
+	ctx.Fasthttp.Response.Header.SetCookie(sessionCookie)
 	ctx.SendStatus(http.StatusOK)
 }
