@@ -25,6 +25,7 @@ func (s *session) handleAdminLogin(ctx *fiber.Ctx) {
 	cookieExpiration := time.Unix(userSession.GetExpiration(), 0).Add(1 * time.Hour)
 
 	sessionCookie := new(fasthttp.Cookie)
+	sessionCookie.SetPath("/")
 	sessionCookie.SetKey("sessionID")
 	sessionCookie.SetValue(userSession.GetSessionID())
 	sessionCookie.SetExpire(cookieExpiration)
