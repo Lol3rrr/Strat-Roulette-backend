@@ -21,5 +21,6 @@
  * GET /strat/random
  * GET /strat/single
  * POST /admin/login
+ * GET /admin/strat/all
  * POST /admin/strat/add
  * POST /admin/strat/delete
