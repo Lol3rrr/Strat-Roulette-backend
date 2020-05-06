@@ -13,7 +13,8 @@ func (s *session) connect() error {
 	ctx, cancelCtx := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancelCtx()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://"+s.URL+":"+s.Port))
+	url := "mongodb://" + s.Username + ":" + s.Password + "@" + s.URL + ":" + s.Port
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI(url))
 	if err != nil {
 		return err
 	}
