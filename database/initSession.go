@@ -1,8 +1,6 @@
 package database
 
 import (
-	"errors"
-
 	"github.com/Lol3rrr/cvault"
 	"github.com/sirupsen/logrus"
 )
@@ -17,25 +15,10 @@ func InitSession(pURL, pPort, pDatabase, pCollection string, vSession cvault.Ses
 		VaultSession: vSession,
 	}
 
-	data, err := vSession.ReadData("database/creds/strat-roulette")
+	err := tmpSession.loadCredsAndReconnect()
 	if err != nil {
-		return nil, errors.New("Could not load Credentials from Vault")
+		return nil, err
 	}
-
-	vSession.RenewDataForever(data, data.LeaseDuration)
-
-	creds := data.Data
-	username, found := creds["username"]
-	if !found {
-		return nil, errors.New("Vault response did not include a username")
-	}
-	password, found := creds["password"]
-	if !found {
-		return nil, errors.New("Vault response did not include a password")
-	}
-
-	tmpSession.Username = username.(string)
-	tmpSession.Password = password.(string)
 
 	err = tmpSession.connect()
 	if err != nil {
