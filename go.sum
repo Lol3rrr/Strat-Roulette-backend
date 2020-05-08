@@ -4,6 +4,8 @@ github.com/Lol3rrr/cvault v0.0.0-20200505205324-bc8698ed1bc9 h1:GHrp6MdNJzoInd2h
 github.com/Lol3rrr/cvault v0.0.0-20200505205324-bc8698ed1bc9/go.mod h1:jBUKeVpHb1cVdJqigPOdKwvaiMpYY2dTVBq8Y4SViH4=
 github.com/Lol3rrr/cvault v0.1.1 h1:NSGx2ojSKuo500OTQZRUrf6CAEyrXlKYF3Hnq1LbBy4=
 github.com/Lol3rrr/cvault v0.1.1/go.mod h1:jBUKeVpHb1cVdJqigPOdKwvaiMpYY2dTVBq8Y4SViH4=
+github.com/Lol3rrr/cvault v0.2.0 h1:knVrMJh+Se1plaSPj0LL2QhApvSDCQROL+4H9w1LIfs=
+github.com/Lol3rrr/cvault v0.2.0/go.mod h1:jBUKeVpHb1cVdJqigPOdKwvaiMpYY2dTVBq8Y4SViH4=
 github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da/go.mod h1:Q73ZrmVTwzkszR9V5SSuryQ31EELlFMUz1kKyl939pY=
 github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
 github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
