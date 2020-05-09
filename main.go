@@ -4,12 +4,12 @@ import (
 	"errors"
 	"strat-roulette-backend/api"
 	"strat-roulette-backend/auth"
-	"strat-roulette-backend/database"
 	"strat-roulette-backend/strats"
 	"strat-roulette-backend/utils"
 	"time"
 
 	"github.com/Lol3rrr/cvault"
+	"github.com/Lol3rrr/mongovault"
 	"github.com/sirupsen/logrus"
 )
 
@@ -47,16 +47,6 @@ func loadAdminCreds(vSession cvault.Session) (map[string]string, error) {
 func main() {
 	logrus.Info("Starting... \n")
 
-	stratDbURL := utils.GetEnvString("stratDB_URL", "localhost")
-	stratDbPort := utils.GetEnvString("stratDB_PORT", "27017")
-	stratDbDatabase := utils.GetEnvString("stratDB_DATABASE", "strats")
-	stratDbCollection := utils.GetEnvString("stratDB_COLLECTION", "entrys")
-
-	sessionDbURL := utils.GetEnvString("sessionDB_URL", "localhost")
-	sessionDbPort := utils.GetEnvString("sessionDB_PORT", "27017")
-	sessionDbDatabase := utils.GetEnvString("sessionDB_DATABASE", "strat_session")
-	sessionDbCollection := utils.GetEnvString("sessionDB_COLLECTION", "sessions")
-
 	sessionDuration := utils.GetEnvInt("sessionDuration", 1440)
 
 	port := utils.GetEnvInt("PORT", 80)
@@ -77,7 +67,16 @@ func main() {
 	adminPassword := creds["password"]
 
 	logrus.Info("Connecting to Strat-Database... \n")
-	stratDbSession, err := database.InitSession(stratDbURL, stratDbPort, stratDbDatabase, stratDbCollection, vSession)
+	stratDbSession, err := mongovault.CreateSession(mongovault.DBOptions{
+		URL:             utils.GetEnvString("stratDB_URL", "localhost"),
+		Port:            utils.GetEnvString("stratDB_PORT", "27017"),
+		Database:        utils.GetEnvString("stratDB_DATABASE", "strats"),
+		Collection:      utils.GetEnvString("stratDB_COLLECTION", "entrys"),
+		ApplicationName: "strat-roulette-backend",
+	}, mongovault.VaultSettings{
+		Session:   vSession,
+		CredsName: "database/creds/strat-roulette",
+	})
 	if err != nil {
 		logrus.Errorf("Could not connect to the Database: %s \n", err)
 		return
@@ -89,7 +88,16 @@ func main() {
 	logrus.Info("Initialized Strats Session \n")
 
 	logrus.Info("Connecting to Session-Database... \n")
-	sessionDbSession, err := database.InitSession(sessionDbURL, sessionDbPort, sessionDbDatabase, sessionDbCollection, vSession)
+	sessionDbSession, err := mongovault.CreateSession(mongovault.DBOptions{
+		URL:             utils.GetEnvString("sessionDB_URL", "localhost"),
+		Port:            utils.GetEnvString("sessionDB_PORT", "27017"),
+		Database:        utils.GetEnvString("sessionDB_DATABASE", "strat_session"),
+		Collection:      utils.GetEnvString("sessionDB_COLLECTION", "sessions"),
+		ApplicationName: "strat-roulette-backend",
+	}, mongovault.VaultSettings{
+		Session:   vSession,
+		CredsName: "database/creds/strat-roulette",
+	})
 	if err != nil {
 		logrus.Errorf("Could not connect to the Database: %s \n", err)
 		return

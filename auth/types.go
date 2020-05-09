@@ -1,6 +1,8 @@
 package auth
 
-import "strat-roulette-backend/database"
+import (
+	"github.com/Lol3rrr/mongovault"
+)
 
 // Role indicates the Role of a given Session
 type Role string
@@ -11,7 +13,7 @@ const (
 )
 
 type session struct {
-	Database        database.SessionInterface
+	Database        mongovault.DB
 	AdminUsername   string
 	AdminPassword   string
 	SessionDuration int64

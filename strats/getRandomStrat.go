@@ -3,6 +3,8 @@ package strats
 import (
 	"errors"
 	"math/rand"
+
+	"github.com/Lol3rrr/mongovault"
 )
 
 // GetRandomStrat selects one random Strat that matches the given Params
@@ -15,9 +17,15 @@ func (s *session) GetRandomStrat(playerSite Site, mode GameMode) (Strat, error) 
 	}
 
 	var entrys []Strat
-	query := map[string]interface{}{
-		"playerSite": playerSite,
-		"modes":      mode,
+	query := []mongovault.Filter{
+		{
+			Key:   "playerSite",
+			Value: playerSite,
+		},
+		{
+			Key:   "modes",
+			Value: mode,
+		},
 	}
 	err := s.Database.GetAll(query, &entrys)
 	if err != nil {

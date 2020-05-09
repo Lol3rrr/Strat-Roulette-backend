@@ -1,9 +1,11 @@
 package auth
 
-import "strat-roulette-backend/database"
+import (
+	"github.com/Lol3rrr/mongovault"
+)
 
 // InitSession is used to create new Auth-Session
-func InitSession(dbSession database.SessionInterface, pAdminUsername, pAdminPassword string, pSessionDuration int64) SessionInterface {
+func InitSession(dbSession mongovault.DB, pAdminUsername, pAdminPassword string, pSessionDuration int64) SessionInterface {
 	sessionDuration := pSessionDuration * 60
 
 	result := &session{

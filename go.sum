@@ -1,11 +1,9 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
-github.com/Lol3rrr/cvault v0.0.0-20200505205324-bc8698ed1bc9 h1:GHrp6MdNJzoInd2ho+eDKINf/I7a/kYUYviARWBtO08=
-github.com/Lol3rrr/cvault v0.0.0-20200505205324-bc8698ed1bc9/go.mod h1:jBUKeVpHb1cVdJqigPOdKwvaiMpYY2dTVBq8Y4SViH4=
-github.com/Lol3rrr/cvault v0.1.1 h1:NSGx2ojSKuo500OTQZRUrf6CAEyrXlKYF3Hnq1LbBy4=
-github.com/Lol3rrr/cvault v0.1.1/go.mod h1:jBUKeVpHb1cVdJqigPOdKwvaiMpYY2dTVBq8Y4SViH4=
-github.com/Lol3rrr/cvault v0.2.0 h1:knVrMJh+Se1plaSPj0LL2QhApvSDCQROL+4H9w1LIfs=
-github.com/Lol3rrr/cvault v0.2.0/go.mod h1:jBUKeVpHb1cVdJqigPOdKwvaiMpYY2dTVBq8Y4SViH4=
+github.com/Lol3rrr/cvault v0.2.2 h1:27at+Gj6e1mfXCsRNUvjz4EdyMoZeGqcgt31C6j3YFY=
+github.com/Lol3rrr/cvault v0.2.2/go.mod h1:jBUKeVpHb1cVdJqigPOdKwvaiMpYY2dTVBq8Y4SViH4=
+github.com/Lol3rrr/mongovault v0.0.6 h1:gRh4L22QNuqSY6OsZJU+zZ+I/auvyl9+xsHLeaBgvaE=
+github.com/Lol3rrr/mongovault v0.0.6/go.mod h1:Fg1WnNPlll0UCjBfhhI7NyVHSENhYrrvNkpRkjApBVI=
 github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da/go.mod h1:Q73ZrmVTwzkszR9V5SSuryQ31EELlFMUz1kKyl939pY=
 github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
 github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
@@ -165,8 +163,8 @@ github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c h1:u40Z8hqBAAQyv+vATcGgV
 github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c/go.mod h1:lB8K/P019DLNhemzwFU4jHLhdvlE6uDZjXFejJXr49I=
 github.com/xdg/stringprep v0.0.0-20180714160509-73f8eece6fdc h1:n+nNi93yXLkJvKwXNP9d55HC7lGK4H/SRcwB5IaUZLo=
 github.com/xdg/stringprep v0.0.0-20180714160509-73f8eece6fdc/go.mod h1:Jhud4/sHMO4oL310DaZAKk9ZaJ08SJfe+sJh0HrGL1Y=
-go.mongodb.org/mongo-driver v1.3.1 h1:op56IfTQiaY2679w922KVWa3qcHdml2K/Io8ayAOUEQ=
-go.mongodb.org/mongo-driver v1.3.1/go.mod h1:MSWZXKOynuguX+JSvwP8i+58jYCXxbia8HS3gZBapIE=
+go.mongodb.org/mongo-driver v1.3.3 h1:9kX7WY6sU/5qBuhm5mdnNWdqaDAQKB2qSZOd5wMEPGQ=
+go.mongodb.org/mongo-driver v1.3.3/go.mod h1:MSWZXKOynuguX+JSvwP8i+58jYCXxbia8HS3gZBapIE=
 golang.org/x/crypto v0.0.0-20180904163835-0709b304e793/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20190422162423-af44ce270edf/go.mod h1:WFFai1msRO1wXaEeE5yQxYXgSfI8pQAWXbQop6sCtWE=

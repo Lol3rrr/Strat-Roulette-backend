@@ -1,9 +1,11 @@
 package strats
 
-import "strat-roulette-backend/database"
+import (
+	"github.com/Lol3rrr/mongovault"
+)
 
 // InitSession creates a new Strats-Session with the given params
-func InitSession(dbSession database.SessionInterface) SessionInterface {
+func InitSession(dbSession mongovault.DB) SessionInterface {
 	tmpSession := &session{
 		Database: dbSession,
 	}

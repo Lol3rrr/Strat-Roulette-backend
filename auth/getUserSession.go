@@ -1,6 +1,10 @@
 package auth
 
-import "errors"
+import (
+	"errors"
+
+	"github.com/Lol3rrr/mongovault"
+)
 
 // GetUserSession simply loads the UserSession for the given SessionID
 func (s *session) GetUserSession(sessionID string) (UserSessionInterface, error) {
@@ -8,8 +12,11 @@ func (s *session) GetUserSession(sessionID string) (UserSessionInterface, error)
 		return &userSession{}, errors.New("Session ID can not be empty")
 	}
 
-	query := map[string]interface{}{
-		"sessionID": sessionID,
+	query := []mongovault.Filter{
+		{
+			Key:   "sessionID",
+			Value: sessionID,
+		},
 	}
 	var result userSession
 	err := s.Database.Get(query, &result)
