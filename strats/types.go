@@ -1,6 +1,6 @@
 package strats
 
-import "strat-roulette-backend/database"
+import "github.com/Lol3rrr/mongovault"
 
 // GameMode is a simple enum that stores a Gamemode of a Strat
 type GameMode string
@@ -34,5 +34,5 @@ type Strat struct {
 }
 
 type session struct {
-	Database database.SessionInterface
+	Database mongovault.DB
 }
