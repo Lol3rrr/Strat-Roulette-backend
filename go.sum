@@ -2,6 +2,8 @@ cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMT
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/Lol3rrr/cvault v0.2.2 h1:27at+Gj6e1mfXCsRNUvjz4EdyMoZeGqcgt31C6j3YFY=
 github.com/Lol3rrr/cvault v0.2.2/go.mod h1:jBUKeVpHb1cVdJqigPOdKwvaiMpYY2dTVBq8Y4SViH4=
+github.com/Lol3rrr/cvault v0.3.0 h1:lQGyI9SdRO/fZLFtmky47IVBkkYZJWr0cr27Zl/Q9sU=
+github.com/Lol3rrr/cvault v0.3.0/go.mod h1:jBUKeVpHb1cVdJqigPOdKwvaiMpYY2dTVBq8Y4SViH4=
 github.com/Lol3rrr/mongovault v0.0.6 h1:gRh4L22QNuqSY6OsZJU+zZ+I/auvyl9+xsHLeaBgvaE=
 github.com/Lol3rrr/mongovault v0.0.6/go.mod h1:Fg1WnNPlll0UCjBfhhI7NyVHSENhYrrvNkpRkjApBVI=
 github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da/go.mod h1:Q73ZrmVTwzkszR9V5SSuryQ31EELlFMUz1kKyl939pY=
@@ -41,8 +43,8 @@ github.com/gobuffalo/packd v0.1.0/go.mod h1:M2Juc+hhDXf/PnmBANFCqx4DM3wRbgDvnVWe
 github.com/gobuffalo/packr/v2 v2.0.9/go.mod h1:emmyGweYTm6Kdper+iywB6YK5YzuKchGtJQZ0Odn4pQ=
 github.com/gobuffalo/packr/v2 v2.2.0/go.mod h1:CaAwI0GPIAv+5wKLtv8Afwl+Cm78K/I/VCm/3ptBN+0=
 github.com/gobuffalo/syncx v0.0.0-20190224160051-33c29581e754/go.mod h1:HhnNqWY95UYwwW3uSASeV7vtgYkT2t16hJgV3AEPUpw=
-github.com/gofiber/fiber v1.9.3 h1:KOuTZABkLAOQkPfrXhnIaPi7QsMkFClBKK6bLL2f4ZM=
-github.com/gofiber/fiber v1.9.3/go.mod h1:o2YQgwJW8+Z16x8MTos4nYn8PD1RJpzu9fojiGqjSjI=
+github.com/gofiber/fiber v1.9.6 h1:HtzOdbdNn/K/NlMMLbCNkiI79Ft0zjio7STcgY/Rox0=
+github.com/gofiber/fiber v1.9.6/go.mod h1:o2YQgwJW8+Z16x8MTos4nYn8PD1RJpzu9fojiGqjSjI=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
 github.com/golang/mock v1.1.1/go.mod h1:oTYuIxOrZwtPieC+H1uAHpcLFnEyAGVDL/k47Jfbm0A=
 github.com/golang/protobuf v1.2.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
