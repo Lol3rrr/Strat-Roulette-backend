@@ -29,7 +29,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: lol3r.net
-          username: root
+          username: leon
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
+          port: 22222
           script: docker pull lol3r/strat-roulette-backend:latest && cd personal_compose/ && docker-compose up -d
