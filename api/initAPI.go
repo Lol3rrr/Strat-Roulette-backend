@@ -4,7 +4,7 @@ import "github.com/gofiber/fiber"
 
 func (s *session) init() *fiber.App {
 	app := fiber.New(&fiber.Settings{
-		Prefork: true,
+		Prefork: false,
 	})
 
 	app.Get("/strat/random", s.handleGetRandomStrat)
