@@ -14,7 +14,7 @@ import (
 )
 
 func loadAdminCreds(vSession cvault.Session) (map[string]string, error) {
-	resp, err := vSession.ReadData("secret/data/strat-roulette/creds")
+	resp, err := vSession.ReadData("kv/data/strat-roulette/creds")
 	if err != nil {
 		return nil, err
 	}
